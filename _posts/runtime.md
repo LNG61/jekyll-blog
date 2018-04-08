@@ -38,7 +38,10 @@ struct objc_class : objc_object{
 ```
 
 #什么是TaggedPointer和nonpointer?
-TaggedPointer:有些对象如果支持使用 TaggedPointer，苹果会直接将其指针值作为引用计数返回；如果当前设备是 64 位环境并且使用 Objective-C 2.0，那么“一些”对象会使用其 isa 指针的一部分空间来存储它的引用计数；否则 Runtime 会使用一张散列表来管理引用计数。
+TaggedPointer:
+Tagged Pointer专门用来存储小的对象，例如NSNumber和NSDate。
+Tagged Pointer指针的值不再是地址了，而是真正的值。所以，实际上它不再是一个对象了，它只是一个披着对象皮的普通变量而已。所以，它的内存并不存储在堆中，也不需要 malloc 和 free。
+在内存读取上有着 3 倍的效率，创建时比以前快 106 倍。
 nonpointer:
 #了解union
 
