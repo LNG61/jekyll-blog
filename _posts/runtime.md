@@ -23,3 +23,4 @@ struct objc_class : objc_object{
 ```
 
 #什么是TaggedPointer和nonpointer?
+#了解union
