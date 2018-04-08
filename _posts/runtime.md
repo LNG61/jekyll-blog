@@ -7,6 +7,9 @@ typedef struct objc_object *id;
 
 #define _OBJC_TAG_MASK 1UL // taggedPointer标记
 
+fastpath(x) x为真的可能性更大
+slowpath(x) x为假的可能性更大
+
 union isa_t{
    Class cls;  // 指向的类cls
    uintptr_t bits;
