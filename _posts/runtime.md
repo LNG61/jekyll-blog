@@ -6,7 +6,7 @@ typedef struct objc_Class *Class;
 typedef struct objc_object *id;
 
 union isa_t{
-	Class cls;
+	Class cls;  // 指向的类cls
    uintptr_t bits;
 };
 
