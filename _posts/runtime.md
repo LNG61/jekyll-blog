@@ -5,6 +5,8 @@ published: false
 typedef struct objc_Class *Class;
 typedef struct objc_object *id;
 
+#define _OBJC_TAG_MASK 1UL // taggedPointer标记
+
 union isa_t{
    Class cls;  // 指向的类cls
    uintptr_t bits;
