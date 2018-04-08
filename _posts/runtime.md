@@ -9,7 +9,7 @@ typedef struct ivar_t *Ivar;
 typedef struct category_t *Category;
 typedef struct property_t *objc_property_t;
 
-#define _OBJC_TAG_MASK 1UL // taggedPointer标记
+#define _OBJC_TAG_MASK // taggedPointer标记
 
 union isa_t{
    Class cls;  // 指向的类cls
