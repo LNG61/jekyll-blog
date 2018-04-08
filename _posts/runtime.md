@@ -22,4 +22,4 @@ struct objc_class : objc_object{
 };
 ```
 
-#什么是TaggedPointer?
+#什么是TaggedPointer和nonpointer?
