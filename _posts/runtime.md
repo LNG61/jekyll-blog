@@ -4,6 +4,10 @@ published: false
 ```
 typedef struct objc_Class *Class;
 typedef struct objc_object *id;
+typedef struct method_t *Method;
+typedef struct ivar_t *Ivar;
+typedef struct category_t *Category;
+typedef struct property_t *objc_property_t;
 
 #define _OBJC_TAG_MASK 1UL // taggedPointer标记
 
