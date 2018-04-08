@@ -23,7 +23,7 @@ union isa_t{
      uintptr_t weakly_referenced : 1; // 表示该对象是否有过 weak 对象，如果没有，则析构时更快
      uintptr_t deallocating : 1; // 表示该对象是否正在析构
      uintptr_t has_sidetable_rc : 1 // 表示该对象的引用计数值是否过大无法存储在 isa 指针
-     uintptr_t extra_rc : 19;
+     uintptr_t extra_rc : 19; // 存储引用计数值减一后的结果
    };
 };
 
