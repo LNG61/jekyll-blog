@@ -19,7 +19,7 @@ union isa_t{
      uintptr_t has_assoc : 1; // 表示该对象是否包含 associated object，如果没有，则析构时会更快
      uintptr_t has_cxx_dtor : 1; // 表示该对象是否有 C++ 或 ARC 的析构函数，如果没有，则析构时更块
      uintptr_t shiftcls : 44; // 类的指针
-     uintptr_t magic : 6;
+     uintptr_t magic : 6; // 固定值为 0xd2，用于在调试时分辨对象是否未完成初始化。
      uintptr_t weakly_referenced : 1; // 是否弱引用
      uintptr_t deallocating : 1;
      uintptr_t extra_rc : 8;
