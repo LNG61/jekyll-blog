@@ -35,16 +35,32 @@ struct objc_class : objc_object{
    cache_t cache;
    class_data_bits_t bits;
 };
-```
 
-#什么是TaggedPointer和nonpointer?
-TaggedPointer:
+/*
+什么是TaggedPointer?
 Tagged Pointer专门用来存储小的对象，例如NSNumber和NSDate。
 Tagged Pointer指针的值不再是地址了，而是真正的值。所以，实际上它不再是一个对象了，它只是一个披着对象皮的普通变量而已。所以，它的内存并不存储在堆中，也不需要 malloc 和 free。
 在内存读取上有着 3 倍的效率，创建时比以前快 106 倍。
-nonpointer:
-#了解union
+*/
+int main(int argc, char * argv[])
+{
+    @autoreleasepool {
+        NSNumber *number1 = @1;
+        NSNumber *number2 = @2;
+        NSNumber *number3 = @3;
+        NSNumber *numberFFFF = @(0xFFFF);
+        
+        NSLog(@"number1 pointer is %p", number1);
+        NSLog(@"number2 pointer is %p", number2);
+        NSLog(@"number3 pointer is %p", number3);
+        NSLog(@"numberffff pointer is %p", numberFFFF);
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    }
+}
+```
 
+
+#了解union
 fastpath(x) x为真的可能性更大
 slowpath(x) x为假的可能性更大
 使用改两个指令的方式，编译器在编译过程中，会将可能性更大的代码紧跟着起面的代码，从而减少指令跳转带来的性能上的下降。 
