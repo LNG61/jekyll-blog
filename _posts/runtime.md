@@ -11,6 +11,11 @@ union isa_t{
 };
 
 struct objc_object{
-    isa_t isa; // isa指针
+   isa_t isa; // isa指针
+};
+struct objc_class : objc_object{
+	Class superclass;
+   cache_t cache;
+   class_data_bits_t bits;
 };
 ```
